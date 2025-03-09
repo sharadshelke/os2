@@ -1,0 +1,32 @@
+#include   
+#include   
+int main()   
+{  
+         int RQ[100], i, n, TotalHeadMoment = 0, initial, count = 0;  
+printf("Enter the number of Requests: ");  
+         scanf("%d", &n);  
+         printf("Enter the Requests sequence: \ n");  
+         for (i = 0; i < n; i++)  
+            scanf("%d", &RQ[i]);  
+         printf("Enter initial head position: ");  
+         scanf("%d", &initial);  
+         printf("%d  - > ", initial);  
+         while (count != n)   
+{  
+               int min = 1000, d, index =  - 1;  
+               for (i = 0; i < n; i++)   
+{  
+                     d = abs(RQ[i]  -   initial);  
+                      if (d < min) {  
+                        min = d;  
+                       index = i; }  
+             }  
+TotalHeadMoment += min;  
+             initial = RQ[index];  
+             printf("%d  - > ", RQ[index]);  
+              RQ[index] = 1000;  
+             count++;  
+       }  
+  printf(" \ nTotal head movement is %d \ n", TotalHeadMoment);  
+        return 0;  
+}  
